@@ -16,25 +16,36 @@ export function addToCart() {
 }
 
 export function fillForm() {
-    cy.get('[id="name"]') // fill form
-        .click()
-        .type('Leon')
-    cy.get('[id="country"]')
-        .type('Hrvatska')
-    cy.get('[id="city"]')
-        .type('Rijeka')
-    cy.get('[id="card"]')
-        .type('56564534432312')
-    cy.get('[id="month"]')
-        .type('6')
-    cy.get('[id="year"]')
-        .click()
-        .type('2022')
-    cy.contains('Purchase')
-        .click()
-    cy.contains('Thank you for your purchase!')
-        .should('be.visible')
-        .wait(1000)
-    cy.contains('OK')
-        .click()
+    cy.fixture('order-data').then(orderData => {
+        const {
+            name,
+            country,
+            city,
+            card,
+            month,
+            year,
+        } = orderData;
+
+        cy.get('[id="name"]') // fill form
+            .click()
+            .type(name)
+        cy.get('[id="country"]')
+            .type(country)
+        cy.get('[id="city"]')
+            .type(city)
+        cy.get('[id="card"]')
+            .type(card)
+        cy.get('[id="month"]')
+            .type(month)
+        cy.get('[id="year"]')
+            .click()
+            .type(year)
+        cy.contains('Purchase')
+            .click()
+        cy.contains('Thank you for your purchase!')
+            .should('be.visible')
+            .wait(1000)
+        cy.contains('OK')
+            .click()
+    });
 }
