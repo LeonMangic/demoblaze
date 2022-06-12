@@ -19,4 +19,4 @@ For Cypress test runner to open, use the following command:
 ```bash
 npm run cypress:open
 ```
-Upon opening of Cypress test runner, click 'Run 6 integration specs' for tests to begin.
+Upon opening of Cypress test runner, follow steps and click on tests to run.
