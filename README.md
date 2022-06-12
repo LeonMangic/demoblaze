@@ -1,4 +1,4 @@
-# QA_task TypeQast
+# QA_Homework
 
 This is a solution and guide on how to start testing suite using Node.js and Cypress
 
